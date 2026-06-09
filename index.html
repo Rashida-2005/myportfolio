@@ -2,57 +2,583 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Software Engineer Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Abuba Rashida | Software Engineer Portfolio</title>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-   <link rel="stylesheet" href="CSS/index.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #1e293b;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: white;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .profile-pic {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #facc15;
+      box-shadow: 0 15px 25px -10px rgba(0, 0, 0, 0.3);
+      margin-bottom: 1rem;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin: 0.5rem 0 0.25rem;
+      font-weight: 700;
+    }
+
+    .open-to-work {
+      background: #facc15;
+      color: #0f172a;
+      padding: 0.25rem 0.9rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+    .live-badge {
+      background: #22c55e;
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-left: 12px;
+      vertical-align: middle;
+    }
+
+    .btn-group {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #facc15;
+      color: #0f172a;
+      padding: 0.7rem 1.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .btn-primary:hover {
+      background: #eab308;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid #facc15;
+      color: #facc15;
+      padding: 0.7rem 1.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s;
+      font-size: 0.9rem;
+    }
+
+    .btn-secondary:hover {
+      background: #facc15;
+      color: #0f172a;
+      transform: translateY(-2px);
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #cbd5e6;
+      font-weight: 400;
+      margin-top: 0.3rem;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin: 2rem 0 1.2rem 0;
+      text-align: center;
+      letter-spacing: -0.3px;
+    }
+
+    .summary-card {
+      background: #f8fafc;
+      padding: 2rem;
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      border: 1px solid #e2e8f0;
+      font-size: 1rem;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .skill-category {
+      background: #f8fafc;
+      padding: 1.3rem;
+      border-radius: 1rem;
+      border: 1px solid #e2e8f0;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .skill-category:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.1);
+    }
+
+    .skill-category h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.8rem;
+      color: #1e293b;
+      font-weight: 600;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+    }
+
+    .skill-tag {
+      background: white;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid #e2e8f0;
+    }
+
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      margin: 1.5rem 0;
+    }
+
+    .project {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: all 0.25s ease;
+      border: 1px solid #e2e8f0;
+    }
+
+    .project:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px -12px rgba(0, 0, 0, 0.12);
+    }
+
+    .project h3 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #0f172a;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0.6rem 0 0.8rem 0;
+    }
+
+    .project-tech span {
+      background: #e2e8f0;
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #334155;
+    }
+
+    .project p {
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    .demo-links {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .demo-link {
+      background: #1e293b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .demo-link:hover {
+      background: #facc15;
+      color: #0f172a;
+    }
+
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .leadership-item {
+      background: #f8fafc;
+      padding: 1.3rem;
+      border-radius: 1rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    .leadership-item strong {
+      font-size: 1.1rem;
+      display: block;
+      margin-bottom: 0.6rem;
+      color: #0f172a;
+    }
+
+    .leadership-item p {
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    .education-card {
+      background: #f8fafc;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      border: 1px solid #e2e8f0;
+      margin: 1.5rem 0;
+    }
+
+    .edu-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: center;
+    }
+
+    .edu-item {
+      background: white;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    .contact-block {
+      background: #f8fafc;
+      border-radius: 1rem;
+      padding: 1.8rem;
+      border: 1px solid #e2e8f0;
+      text-align: center;
+    }
+
+    .contact-info {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      margin: 0.3rem 0.5rem;
+      font-weight: 500;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid #e2e8f0;
+    }
+
+    .contact-info:hover {
+      background: #facc15;
+      transform: scale(1.02);
+      border-color: #facc15;
+    }
+
+    .contact-info a {
+      text-decoration: none;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .copy-toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1e293b;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      z-index: 1000;
+      animation: fadeInOut 2s ease;
+    }
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+      15% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      85% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+    }
+
+    footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .skills-grid, .leadership-grid {
+        grid-template-columns: 1fr;
+      }
+      header h1 {
+        font-size: 1.6rem;
+      }
+      .profile-pic {
+        width: 140px;
+        height: 140px;
+      }
+      section {
+        padding: 0 1rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <header>
-  <img src="images/WhatsApp Image 2025-08-14 at 20.08.23_2abb6273.jpg" alt="Abuba's Photo" class="profile-pic">
-  <h1>Abuba Rashida— Software Engineer</h1>
-  <p>Problem Solver | Code Architect | Tech Explorer</p>
+  <img src="images/my portfolio pic.jpeg" alt="Abuba Rashida" class="profile-pic" onerror="this.src='https://via.placeholder.com/170?text=Abuba';">
+  <h1>Abuba Rashida <span class="open-to-work">Open to Work</span></h1>
+  <p>Software Engineer | Full-Stack Developer | Tech Explorer</p>
+  
+  <div class="btn-group">
+    <a href="Abuba_CV.pdf" download class="btn-primary" id="downloadBtn">
+      <i class='bx bx-download'></i> Download CV
+    </a>
+    <a href="#contact" class="btn-secondary">
+      <i class='bx bx-chat'></i> Contact Me
+    </a>
+  </div>
 </header>
 
 <section>
-  <h2>About Me</h2>
-  <p>I’m a software engineer passionate about building scalable systems, solving real-world problems, and writing clean, efficient code. I thrive in environments that challenge my logic and creativity.</p>
-
-  <h2>Skills</h2>
-  <ul>
-    <li>Languages: Python</li>
-    <li>Frameworks: Django</li>
-    <li>Tools: Git, VS Code, </li>
-    <li>Concepts: Agile,Data Structures, Algorithms</li>
-  </ul>
-
-  <h2>Projects</h2>
-  <div class="project">
-    <h3>Dream TechAgency</h3>
-    <p>Built a web app that helps establish credibility and trust that attracts collaborators and clients hence inspiring and leading them into the Tech World.</p>
-  </div>
-  <div class="project">
-    <h3>Hotel-Komar</h3>
-    <p>Developed a hotel management website that automates room booking, payment processing, and customer management. The system allows guests to make reservations online and helps staff efficiently handle operations, improving overall service delivery and guest satisfaction.</p>
-  </div>
-  <div class="project">
-    <h3>Mayondo wood and furniture Limited system</h3>
-    <p>Created a system to streamline operations from inventory tracking and order management to customer engagement so the business can scale efficiently while maintaining craftmanship and trust.</p>
+  <h2>Professional Summary</h2>
+  <div class="summary-card">
+    <p>Results-driven Software Engineer with hands-on experience building full-stack web and mobile applications in professional environments. Skilled in Python, Django, React Native, and NestJS. Experienced in Agile/Scrum ceremonies, CI/CD pipelines, and collaborative Git workflows. Passionate about delivering scalable, user-centric solutions and ready to contribute to high-impact engineering teams.</p>
   </div>
 
-  <h2>Contact Me</h2>
-         <div class="contact-info"><i class='bx bx-phone-call'></i>+256 (0) 774118062</div>
-    <div class="contact-info"> <i class='bx bx-phone-call'></i>+256 (0) 760137856</div>
-    <h2>Or find me via</h2>
-    <div class="contact-info"> <a href="https://www.instagram.com/?next=%2F"><i class='bx bxl-instagram'style="font-size: 30px ;"></i></a></div>
-      <div class="contact-info"><a href="https://github.com/"><i class='bx bxl-github'style="font-size: 30px ;"></i></a></div>
-        <div class="contact-info"><a href="https://www.linkedin.com/in/abuba-rashida-1b117537b/"><i class='bx bxl-linkedin-square'style="font-size: 30px ;"></i></a></div>
-     </form> 
+  <h2>Technical Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-category">
+      <h3>💻 Programming Languages</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">JavaScript (Node.js)</span>
+        <span class="skill-tag">NestJS</span>
+        <span class="skill-tag">HTML5/CSS3</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h3>⚛️ Frameworks & Libraries</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Django</span>
+        <span class="skill-tag">React.js</span>
+        <span class="skill-tag">React Native</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h3>🗄️ Database & APIs</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">PostgreSQL</span>
+        <span class="skill-tag">Supabase</span>
+        <span class="skill-tag">Postman</span>
+        <span class="skill-tag">Swagger</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h3>🛠️ Tools & Platforms</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Git/GitHub</span>
+        <span class="skill-tag">VS Code</span>
+        <span class="skill-tag">Figma/Visily</span>
+        <span class="skill-tag">Render</span>
+        <span class="skill-tag">CI/CD Pipelines</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>Project Experience</h2>
+  <div class="projects-list">
+    <div class="project">
+      <h3>Mayondo Wood and Furniture Limited System <span class="live-badge">● Live</span></h3>
+      <div class="project-tech">
+        <span>Python</span>
+        <span>Django</span>
+        <span>PostgreSQL</span>
+      </div>
+      <p>Built a comprehensive system to manage inventory, orders, and customer interactions. Improved operational efficiency and supported business scalability. Enhanced data organization and streamlined workflow processes for real-time tracking.</p>
+      <div class="demo-links">
+        <a href="https://sense-1-0jzx.onrender.com" target="_blank" class="demo-link">🌐 View Live Demo</a>
+        <a href="https://github.com/Rashida-2005/sense" target="_blank" class="demo-link">🐙 GitHub Repository</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>Full-Stack Mobile App (Apprenticeship)</h3>
+      <div class="project-tech">
+        <span>React Native</span>
+        <span>NestJS</span>
+        <span>Supabase</span>
+        <span>CI/CD</span>
+      </div>
+      <p>Built full-stack web and mobile application in a structured professional environment. Collaborated with distributed teams via Git and GitHub, applying branching strategies and pull requests with clean code. Participated in Agile/Scrum ceremonies including sprint planning, daily standups, and interactive cycles. Implemented CI/CD pipelines to automate testing and streamline deployment workflows. Delivered responsive, scalable web and mobile applications with a strong focus on usability.</p>
+      <div class="demo-links">
+        <button class="demo-link" onclick="alert('GitHub repository and live demo coming soon! This project is currently being prepared for deployment.')">📱 Preview Soon</button>
+      </div>
+    </div>
+  </div>
+
+  <h2>Leadership & Activities</h2>
+  <div class="leadership-grid">
+    <div class="leadership-item">
+      <strong>📋 Product Owner – Agile Sprint Projects</strong>
+      <p>Served as Product Owner during software development sprints. Defined and prioritized product requirements and managed product backlogs. Collaborated closely with developers and Scrum Masters to deliver project objectives. Facilitated communication between stakeholders and development team.</p>
+    </div>
+    <div class="leadership-item">
+      <strong>🏫 High School Leadership</strong>
+      <p>Held leadership roles in high school, demonstrating responsibility, teamwork, and organizational skills.</p>
+    </div>
+  </div>
+
+  <h2>Education & Certifications</h2>
+  <div class="education-card">
+    <div class="edu-list">
+      <span class="edu-item">📘 Apprenticeship in Software Engineering (Current)</span>
+      <span class="edu-item">📜 Certificate in Software Engineering with Python</span>
+      <span class="edu-item">🎯 Certificate in Soft Skills – Brighter Monday</span>
+      <span class="edu-item">☁️ Microsoft Azure Certification</span>
+      <span class="edu-item">📚 UACE - St. Katherine Secondary School | 2023–2024</span>
+      <span class="edu-item">📖 UCE - Lira Integrated Schools | 2018–2022</span>
+    </div>
+  </div>
+
+  <h2 id="contact">Contact & Connect</h2>
+  <div class="contact-block">
+    <div>
+      <div class="contact-info" onclick="copyToClipboard('+256 (0) 760137856')">
+        📞 +256 (0) 760137856
+      </div>
+      <div class="contact-info" onclick="copyToClipboard('+256 (0) 747714012')">
+        📞 +256 (0) 747714012
+      </div>
+      <div class="contact-info" onclick="copyToClipboard('rashidaabuba93@gmail.com')">
+        ✉️ rashidaabuba93@gmail.com
+      </div>
+    </div>
+    <div class="social-links">
+      <a href="https://github.com/Rashida-2005" target="_blank" class="contact-info">🐙 GitHub</a>
+      <a href="https://www.linkedin.com/in/abuba-rashida-1b117537b/" target="_blank" class="contact-info">🔗 LinkedIn</a>
+    </div>
+    <p style="margin-top: 1.2rem; font-size: 0.85rem; color: #475569;">📌 References available upon request — Open for Software Engineering roles, Full-Stack Development, and remote collaborations.</p>
+  </div>
 </section>
 
 <footer>
-  <p>© 2025 Abuba Rashida— Built with passion and precision</p>
+  <p>© 2025 Abuba Rashida — Built with passion, precision & readiness for the work world</p>
+  <p style="margin-top: 0.5rem;">💡 "Write code that matters, solve problems that count."</p>
 </footer>
+
+<script>
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(function() {
+      const toast = document.createElement('div');
+      toast.className = 'copy-toast';
+      toast.innerHTML = '✅ Copied: ' + text;
+      document.body.appendChild(toast);
+      setTimeout(function() {
+        toast.remove();
+      }, 2000);
+    }).catch(function() {
+      alert('Press Ctrl+C to copy: ' + text);
+    });
+  }
+
+  document.getElementById('downloadBtn').addEventListener('click', function(e) {
+    e.preventDefault();
+    const link = document.createElement('a');
+    link.href = 'Abuba_CV.pdf';
+    link.download = 'Abuba_Rashida_CV.pdf';
+    link.click();
+  });
+</script>
 
 </body>
 </html>
