@@ -1398,10 +1398,10 @@
 
     // ===== DOWNLOAD CV FUNCTION =====
     function downloadCV() {
-      // This will download your existing Abuba_CV.pdf file
+      // This downloads the current CV file (Abuba-Rashida-cv.pdf)
       const link = document.createElement('a');
-      link.href = 'Abuba_CV.pdf';
-      link.download = 'Abuba_CV.pdf';
+      link.href = 'Abuba-Rashida-cv.pdf';
+      link.download = 'Abuba-Rashida-cv.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
